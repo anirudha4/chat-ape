@@ -1,30 +1,49 @@
 import React, { useState } from 'react'
-import Searchbar from './Searchbar'
-import Results from './Results'
-import { Card, Container, Line, Space, Button } from '@components/custom'
+import { Button, Card, Container, Space } from '@components/custom'
+import styled from 'styled-components'
+import { colors } from '@themes';
+import Loader from 'react-loader-spinner';
 
-
-export default function Home({ home }) {
-    const { results, loading, getGithubRepositories } = home;
-    const [search, setSearch] = useState();
-    const handleChange = e => {
-        setSearch(e.target.value)
+const Title = styled.h2`
+    strong {
+        color: ${colors.text};
     }
-    const handleClick = e => {
-        if(search) 
-            getGithubRepositories(search)
+    span {
+        color: ${colors.primary} !important;
+        margin: 0 5px;
+    }
+`;
+
+export default function Home({ home, userAttr }) {
+    const [loading, setLoading] = useState(false);
+    const handleLogin = async () => {
+        try {
+            setLoading(true);
+            await userAttr.login();
+            setLoading(false);
+        } catch(err) {
+            setLoading(false);
+            console.log(err);
+        }
     }
     return (
         <Container>
-            <Space top="2em" bottom="1em" />
-            <Card>
-                <Searchbar onChange={handleChange} value={search} />
-                <Space top="1em" />
-                <Button disabled={loading || !search} onClick={handleClick}>{loading ? 'Searching' : 'Search'}</Button>
+            <Card style={{ textAlign: 'center' }}>
                 <Space top="2em" />
-                <Line />
-                <Space top="2em" />
-                <Results search={search} results={results} />
+                <Title><strong>Login to <span>Chat Ape</span> to Start Chatting</strong></Title>
+                <Space bottom="2em" />
+                <Button disabled={loading} onClick={handleLogin}>
+                    {loading ? (
+                        <Loader 
+                            color={colors.primary}
+                            type='Oval'
+                            height={20}
+                            width={20}
+                        />) : 
+                        'Get Started'
+                    }
+                </Button>
+                <Space bottom="2em" />
             </Card>
         </Container>
     )

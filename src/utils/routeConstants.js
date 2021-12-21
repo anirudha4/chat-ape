@@ -3,10 +3,10 @@ export default {
       route: '/',
       exact: true
     },
-    about: {
-      route: '/about',
-      props: {
-        title: 'This is about page'
-      }
+    conversation: {
+      route: '/conversation'
+    },
+    chat: {
+      route: '/chat/:id'
     }
   };

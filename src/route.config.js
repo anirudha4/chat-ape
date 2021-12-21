@@ -1,14 +1,19 @@
 import Home from "@pages/Home";
+import Conversation from "@pages/Conversation";
 import routeConstants from "@utils/routeConstants";
-import About from "@pages/About";
+import Chat from "@pages/Chat";
 
 export const routeConfig = {
     home: {
         component: Home,
         ...routeConstants.home
     },
-    about: {
-        component: About,
-        ...routeConstants.about
+    conversation: {
+        component: Conversation,
+        ...routeConstants.conversation
+    },
+    chat: {
+        component: Chat,
+        ...routeConstants.chat
     }
 }

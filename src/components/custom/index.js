@@ -25,7 +25,7 @@ export const FlexCenter = styled.div`
 `;
 export const Card = styled.div`
     padding: 1.5em;
-    background-color: ${colors.white};
+    background-color: ${colors.foreBg};
     border-radius: ${styles.borderRadius};
     box-shadow: ${styles.boxShadow};
 `;
@@ -35,18 +35,6 @@ export const BorderedCard = styled(Card)`
     border: 2px solid ${colors.greyLight};
 `;
 
-export const Input = styled.input`
-    width: 100%;
-    padding: 1em 1.3em;
-    border: none;
-    border-bottom: 2px solid ${colors.greyLight};
-    background-color: ${colors.secondary};
-    outline: none;
-    transition: all .2s;
-    &:focus {
-        border-bottom: 2px solid ${colors.primary};
-    }
-`;
 
 export const Line = styled.div`
     height: 2px;
@@ -54,29 +42,59 @@ export const Line = styled.div`
 `;
 
 export const Title = styled.h3`
-    margin-bottom: .3em;
+    color: ${colors.text};
 `;
 export const Subtitle = styled.h6`
     color: ${colors.grey};
 `;
 
 export const Button = styled.button`
-    padding: 1em 1.3em;
+    padding: 1em 1.6em;
+    min-width: 100px;
     border: none;
     outline: none;
-    background-color: ${colors.primary};
-    color: ${colors.white};
+    background-color: ${props => props.danger ? colors.danger : colors.primary};
+    color: ${colors.text};
     font-weight: ${fonts.weight.bold};
-    border-radius: ${styles.borderRadius};
+    border-radius: 50px;
     cursor: pointer;
     transition: all .2s;
-    box-shadow: ${styles.boxShadow};
-    &:hover {
-        background-color: ${colors.primaryDark};
-    }
     &:disabled {
-        background-color: ${colors.greyLight};
-        color: ${colors.grey};
+        background-color: ${colors.bg};
         cursor: not-allowed;
     }
+`;
+
+export const Avatar = styled.div`
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px solid ${props => props.borderColor ? props.borderColor : colors.primary};
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+`;
+
+export const Input = styled.input`
+    width: 100%;
+    border: 2px solid ${colors.bg};
+    border-radius: ${styles.borderRadius};
+    background-color: ${colors.bg};
+    outline: none;
+    transition: all .2s;
+    font-weight: ${fonts.weight.medium};
+    color: ${colors.text};
+    padding: 10px;
+    &:focus {
+        border: 2px solid ${colors.primary};
+    }
+    &:hover {
+        border: 2px solid ${colors.primary};
+    }
+`;
+export const Flex = styled.div`
+    display: flex;
 `;
