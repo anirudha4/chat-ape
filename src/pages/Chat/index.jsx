@@ -62,7 +62,7 @@ const MessageCube = styled.div`
     word-wrap: break-word;
     padding: .7em .8em;
     font-weight: ${fonts.weight.regular};
-    font-size: ${fonts.small};
+    font-size: ${fonts.fontMedium};
     background-color: ${props => props.you ? colors.bg : colors.primary};   
     max-width: 250px;
     border-radius: ${styles.borderRadius};
