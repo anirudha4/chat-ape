@@ -26,3 +26,9 @@ a {
 ::-webkit-scrollbar-thumb {
     background-color: var(--secondary);
 }
+
+@media (max-width: 500px) {
+    body {
+        font-size: 12px;
+    }
+}

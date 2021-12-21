@@ -61,7 +61,7 @@ const Message = styled.div`
 const MessageCube = styled.div`
     word-wrap: break-word;
     padding: .7em .8em;
-    font-weight: ${fonts.weight.medium};
+    font-weight: ${fonts.weight.regular};
     font-size: ${fonts.small};
     background-color: ${props => props.you ? colors.bg : colors.primary};   
     max-width: 250px;
@@ -144,7 +144,7 @@ function Chat({ userAttr, chatStore }) {
                                                     <Message key={JSON.stringify(msg)} you={true}>
                                                         <Time>{getFormattedTime(msg.sentAt)}</Time>
                                                         <MessageCube you={true}>
-                                                            <strong>{msg.message}</strong>
+                                                            {msg.message}
                                                         </MessageCube>
                                                     </Message>) : (
                                                         <Message key={JSON.stringify(msg)} you={false}>
